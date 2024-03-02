@@ -1,4 +1,4 @@
-# postgres-bay
+# postgres-bayesian-models
 Using Bayesian models in PostgreSQL
 
 
