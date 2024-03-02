@@ -1,13 +1,16 @@
 import numpy as np
 
+
 def generate_data(params):
     """Generate synthetic data given parameters."""
     mean, std = params
     return np.random.normal(mean, std, size=100)
 
+
 def distance_metric(observed_data, simulated_data):
     """Calculate distance between observed and simulated data."""
     return np.abs(np.mean(observed_data) - np.mean(simulated_data))
+
 
 def abc_inference(observed_data, prior_sampler, distance_metric, threshold, num_samples):
     """
@@ -38,6 +41,7 @@ def abc_inference(observed_data, prior_sampler, distance_metric, threshold, num_
     
     return np.array(accepted_params)
 
+
 # Example usage
 if __name__ == "__main__":
     # Observed data (for example purposes, generating synthetic observed data)
@@ -46,6 +50,9 @@ if __name__ == "__main__":
     
     # Define a prior sampler for the parameters
     def prior_sampler():
+        """
+        Sample from the prior distribution of the parameters.
+        For simplicity, we assume uniform priors for the mean and standard deviation."""
         return [np.random.uniform(0, 10), # Prior for mean
                 np.random.uniform(1, 5)]  # Prior for standard deviation
 
